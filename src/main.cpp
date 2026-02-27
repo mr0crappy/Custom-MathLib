@@ -5,15 +5,15 @@ using namespace Math;
 
 void ShowMenu()
 {
-    std::cout << "\n==== Math Helpers Demo ====\n";
-    std::cout << "1. Clamp\n";
-    std::cout << "2. Lerp\n";
-    std::cout << "3. SmoothStep\n";
-    std::cout << "4. Min\n";
-    std::cout << "5. Max\n";
-    std::cout << "6. Abs\n";
+    std::cout << "\n==== Math Scalar Test ====\n";
+    std::cout << "1. Basic Helpers (Abs, Min, Max, Sign)\n";
+    std::cout << "2. Interpolation (Clamp, Lerp, SmoothStep)\n";
+    std::cout << "3. Rounding (Floor, Ceil, Round, Fract)\n";
+    std::cout << "4. Angle Helpers (Deg/Rad, Wrap)\n";
+    std::cout << "5. Comparison (IsZero, NearlyEqual)\n";
+    std::cout << "6. Modulo\n";
     std::cout << "0. Exit\n";
-    std::cout << "Choose an option: ";
+    std::cout << "Choose option: ";
 }
 
 int main()
@@ -25,45 +25,65 @@ int main()
         ShowMenu();
         std::cin >> choice;
 
-        float a, b, x, t;
-
         switch (choice)
         {
         case 1:
-            std::cout << "Enter value, min, max: ";
-            std::cin >> x >> a >> b;
-            std::cout << "Result: " << Clamp(x, a, b) << "\n";
+        {
+            float x = -3.7f;
+            std::cout << "\nAbs(" << x << ") = " << Abs(x) << "\n";
+            std::cout << "Min(3,7) = " << Min(3.0f, 7.0f) << "\n";
+            std::cout << "Max(3,7) = " << Max(3.0f, 7.0f) << "\n";
+            std::cout << "Sign(-5) = " << Sign(-5) << "\n";
             break;
+        }
 
         case 2:
-            std::cout << "Enter a, b, t: ";
-            std::cin >> a >> b >> t;
-            std::cout << "Result: " << Lerp(a, b, t) << "\n";
+        {
+            std::cout << "\nClamp(1.5) = " << Clamp(1.5f) << "\n";
+            std::cout << "Lerp(0,10,0.5) = " << Lerp(0.0f, 10.0f, 0.5f) << "\n";
+            std::cout << "SmoothStep(0,1,0.5) = "
+                      << SmoothStep(0.0f, 1.0f, 0.5f) << "\n";
             break;
+        }
 
         case 3:
-            std::cout << "Enter edge0, edge1, x: ";
-            std::cin >> a >> b >> x;
-            std::cout << "Result: " << SmoothStep(a, b, x) << "\n";
+        {
+            float x = -2.3f;
+            std::cout << "\nFloor(" << x << ") = " << Floor(x) << "\n";
+            std::cout << "Ceil(" << x << ") = " << Ceil(x) << "\n";
+            std::cout << "Round(" << x << ") = " << Round(x) << "\n";
+            std::cout << "Fract(" << x << ") = " << Fract(x) << "\n";
             break;
+        }
 
         case 4:
-            std::cout << "Enter two values: ";
-            std::cin >> a >> b;
-            std::cout << "Result: " << Min(a, b) << "\n";
+        {
+            float angle = 370.0f;
+            std::cout << "\nDegToRad(90) = " << DegToRad(90.0f) << "\n";
+            std::cout << "RadToDeg(PI) = " << RadToDeg(PI) << "\n";
+            std::cout << "WrapToTAU(370 deg in rad) = "
+                      << WrapToTAU(DegToRad(angle)) << "\n";
+            std::cout << "WrapToPI(370 deg in rad) = "
+                      << WrapToPI(DegToRad(angle)) << "\n";
             break;
+        }
 
         case 5:
-            std::cout << "Enter two values: ";
-            std::cin >> a >> b;
-            std::cout << "Result: " << Max(a, b) << "\n";
+        {
+            float a = 1.0000001f;
+            float b = 1.0000002f;
+            std::cout << "\nIsZero(1e-7) = " << IsZero(1e-7f) << "\n";
+            std::cout << "NearlyEqual(a,b) = "
+                      << NearlyEqual(a, b) << "\n";
             break;
+        }
 
         case 6:
-            std::cout << "Enter value: ";
-            std::cin >> x;
-            std::cout << "Result: " << Abs(x) << "\n";
+        {
+            std::cout << "\nMod(-5.5, 2.0) = "
+                      << Mod(-5.5f, 2.0f) << "\n";
             break;
+        }
 
         case 0:
             std::cout << "Exiting...\n";
