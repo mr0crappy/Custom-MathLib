@@ -18,7 +18,8 @@ A customer math library mainly focusing game dev
 ## Build
 Using CMake:
 
-mkdir build
+```mkdir build
 cd build
 cmake ..
 cmake --build .
+```
