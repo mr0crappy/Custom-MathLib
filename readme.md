@@ -7,6 +7,13 @@ A customer math library mainly focusing game dev
 - SmoothStep
 - Min/Max
 - Abs
+- Floor/Ceil/Round
+- Fract
+- DegToRad/RadToDeg
+- IsZero
+- NearlyEqual
+- Mod
+- Wrap
 
 ## Build
 Using CMake:
