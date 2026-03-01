@@ -39,6 +39,9 @@ struct Vec2 {
     y /= a;
     return *this;
   }
+  inline constexpr float LengthSq() const {
+    return x * x + y * y;
+}
 };
 } // namespace Math
 
