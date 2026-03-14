@@ -74,6 +74,10 @@ struct Vec2 {
     return std::sqrt(DistanceSq(a,b));
   }
 
+  Vec2 operator-() const {
+    return Vec2(-x,-y);
+  }
+  
 
 };
 } // namespace Math
